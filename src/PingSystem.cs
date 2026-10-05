@@ -11,8 +11,9 @@ public static class PingSystem
                      .Query<PingRequestTag>()
                      .EnumerateWithEntities<PingRequestTag>())
         {
-            ping.Entity.Add(new PongResponse { Text = "pong" });
-            ping.Entity.Remove<PingRequestTag>();
+            var entity = ping.Entity;
+            entity.Add(new PongResponse { Text = "Pong You!!" });
+            entity.Remove<PingRequestTag>();
         }
     }
 }

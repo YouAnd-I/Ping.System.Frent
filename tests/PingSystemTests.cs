@@ -16,7 +16,7 @@ public class PingSystemTests
 
         Assert.False(ping.Has<PingRequestTag>());
         Assert.True(ping.Has<PongResponse>());
-        Assert.Equal("pong", ping.Get<PongResponse>().Text);
+        Assert.Equal("Pong You!!", ping.Get<PongResponse>().Text);
     }
 
     [Fact]

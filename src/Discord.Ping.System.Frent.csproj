@@ -11,8 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Discord.ID.Data\src\Discord.ID.Data.csproj" />
-    <ProjectReference Include="..\..\Status.Data\src\Status.Data.csproj" />
+    <ProjectReference Include="..\..\Discord.Ping.Data\src\Discord.Ping.Data.csproj" />
   </ItemGroup>
 
 </Project>

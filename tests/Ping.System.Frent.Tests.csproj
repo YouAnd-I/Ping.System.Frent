@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\Discord.Ping.System.Frent.csproj" />
+    <ProjectReference Include="..\src\Ping.System.Frent.csproj" />
   </ItemGroup>
 
 </Project>

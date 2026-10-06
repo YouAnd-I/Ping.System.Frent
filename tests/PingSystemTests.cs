@@ -1,33 +1,31 @@
-using Discord.Ping.Data;
 using Frent;
+using Ping.Data;
 using Xunit;
 
-namespace Discord.Ping.System.Frent.Tests;
+namespace Ping.System.Frent.Tests;
 
 public class PingSystemTests
 {
     [Fact]
-    public void Ping_BecomesPong()
+    public void Ping_IsAnsweredOnTheSameEntity()
     {
         using var world = new World();
-        var ping = world.Create(new PingRequestTag());
+        var ping = world.Create(new PingRequest());
 
         PingSystem.Execute(world);
 
-        Assert.False(ping.Has<PingRequestTag>());
-        Assert.True(ping.Has<PongResponse>());
-        Assert.Equal("Pong You!!", ping.Get<PongResponse>().Text);
+        Assert.False(ping.Has<PingRequest>());
+        Assert.Equal("Pong You!!", ping.Get<PingResponse>().Text);
     }
 
     [Fact]
     public void EntitiesWithoutPing_AreUntouched()
     {
         using var world = new World();
-        var other = world.Create(new PongResponse { Text = "unrelated" });
+        var other = world.Create(new PingResponse { Text = "unrelated" });
 
         PingSystem.Execute(world);
 
-        Assert.True(other.Has<PongResponse>());
-        Assert.False(other.Has<PingRequestTag>());
+        Assert.Equal("unrelated", other.Get<PingResponse>().Text);
     }
 }
